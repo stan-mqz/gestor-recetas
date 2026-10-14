@@ -1,0 +1,333 @@
+:root {
+  --fondo: #ffffff;
+  --superficie: #ffffff;
+  --suave: #fff3e8;
+  --texto: #2d2a26;
+  --texto-suave: #6f675e;
+  --borde: #f5d5bd;
+  --primario: #f97316;
+  --primario-oscuro: #ea580c;
+  --favorita: #f97316;
+  --peligro: #c0392b;
+  --exito: #2e7d4f;
+  --radio: 12px;
+  --sombra: 0 2px 8px rgba(249, 115, 22, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+/* ---------- Encabezado ---------- */
+
+.encabezado {
+  margin-bottom: 1.5rem;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  color: #fff;
+  background: var(--primario);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.encabezado p {
+  margin: 0.25rem 0 0;
+}
+
+/* ---------- Estructura ---------- */
+
+.contenido {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.panel {
+  position: sticky;
+  top: 1rem;
+  padding: 1.25rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.panel h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: var(--primario-oscuro);
+}
+
+/* ---------- Formulario ---------- */
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: inherit;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+}
+
+#form-receta input,
+#form-receta textarea {
+  margin-bottom: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--primario);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primario);
+  outline-offset: 2px;
+}
+
+.form-acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---------- Botones ---------- */
+
+.btn {
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn--primario {
+  flex: 1;
+  color: #fff;
+  background: var(--primario);
+}
+
+.btn--primario:hover {
+  background: var(--primario-oscuro);
+}
+
+.btn--secundario {
+  color: var(--primario-oscuro);
+  background: var(--superficie);
+  border-color: var(--primario);
+}
+
+.btn--secundario:hover {
+  background: var(--suave);
+}
+
+.btn--peligro {
+  color: var(--peligro);
+  background: var(--superficie);
+  border-color: var(--borde);
+}
+
+.btn--peligro:hover {
+  color: #fff;
+  background: var(--peligro);
+  border-color: var(--peligro);
+}
+
+/* ---------- Mensajes ---------- */
+
+.mensaje {
+  margin: 1rem 0 0;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 8px;
+}
+
+.mensaje--exito {
+  color: var(--exito);
+  background: #e6f4ec;
+}
+
+.mensaje--error {
+  color: var(--peligro);
+  background: #fbeae8;
+}
+
+/* ---------- Filtros ---------- */
+
+.filtros {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.filtros select {
+  width: auto;
+}
+
+.filtro-favoritas {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.contador {
+  margin: 0.75rem 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- Tarjetas ---------- */
+
+.lista-recetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.lista-vacia {
+  grid-column: 1 / -1;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--texto-suave);
+  border: 2px dashed var(--borde);
+  border-radius: var(--radio);
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.tarjeta--favorita {
+  border-color: var(--primario);
+  border-width: 2px;
+}
+
+.tarjeta__cabecera {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.tarjeta__nombre {
+  margin: 0;
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+
+.btn-favorita {
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--favorita);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-favorita:hover {
+  transform: scale(1.15);
+}
+
+.tarjeta__tiempo {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.tarjeta__ingredientes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tarjeta__ingredientes li {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+  background: var(--suave);
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta__acciones {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.tarjeta__acciones .btn {
+  flex: 1;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Pantallas pequeñas ---------- */
+
+@media (max-width: 800px) {
+  .contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    position: static;
+  }
+
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+
+  .filtros select {
+    width: 100%;
+  }
+}

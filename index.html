@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Recetas</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <h1>🍳 Gestor de Recetas</h1>
+      <p>Guarda y organiza tus recetas de cocina.</p>
+    </header>
+
+    <main class="contenido">
+      <section class="panel" aria-labelledby="titulo-formulario">
+        <h2 id="titulo-formulario">Nueva receta</h2>
+
+        <form id="form-receta" novalidate>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" type="text" placeholder="Ej. Sopa de tortilla" maxlength="60" required />
+
+          <label for="ingredientes">Ingredientes</label>
+          <textarea
+            id="ingredientes"
+            rows="4"
+            placeholder="Sepáralos con comas o saltos de línea"
+            required
+          ></textarea>
+
+          <label for="tiempo">Tiempo de preparación (minutos)</label>
+          <input id="tiempo" type="number" min="1" step="1" placeholder="Ej. 30" required />
+
+          <div class="form-acciones">
+            <button id="btn-guardar" type="submit" class="btn btn--primario">Registrar receta</button>
+            <button id="btn-cancelar" type="button" class="btn btn--secundario" hidden>Cancelar</button>
+          </div>
+        </form>
+
+        <p id="mensaje" class="mensaje" role="status" aria-live="polite" hidden></p>
+      </section>
+
+      <section class="recetas" aria-label="Recetas guardadas">
+        <div class="filtros">
+          <input
+            id="busqueda"
+            type="search"
+            placeholder="Buscar por nombre o ingrediente…"
+            aria-label="Buscar por nombre o ingrediente"
+          />
+
+          <select id="filtro-tiempo" aria-label="Filtrar por tiempo de preparación">
+            <option value="todas">Cualquier tiempo</option>
+            <option value="hasta-15">Hasta 15 min</option>
+            <option value="hasta-30">Hasta 30 min</option>
+            <option value="hasta-60">Hasta 60 min</option>
+            <option value="mas-60">Más de 60 min</option>
+          </select>
+
+          <label class="filtro-favoritas">
+            <input id="filtro-favoritas" type="checkbox" />
+            Solo favoritas ★
+          </label>
+        </div>
+
+        <p id="contador" class="contador"></p>
+        <div id="lista-recetas" class="lista-recetas"></div>
+      </section>
+    </main>
+
+    <!-- Generado desde src/ con "npm run build" -->
+    <script src="dist/app.js"></script>
+  </body>
+</html>
+  
